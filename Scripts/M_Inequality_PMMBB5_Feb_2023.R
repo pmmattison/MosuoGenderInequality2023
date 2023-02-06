@@ -351,18 +351,11 @@ stopifnot(nrow(incomes) == 775)
 
 #Individual income broken down my gender and kinship (0=mat,1=pat)
 indinctab<-table(factor(incomes$kinship),factor(incomes$Gender))
-# 0   1
-# mat 175 281
-# pat  88 231
+
 indinckintab<-prop.table(indinctab,margin=1)
-# 0         1
-# mat 0.3837719 0.6162281
-# pat 0.2758621 0.7241379
+
 indincgentab<-prop.table(indinctab,margin=2)
-# 0         1
-# mat 0.6653992 0.5488281
-# pat 0.3346008 0.4511719
-#
+
 #create robust standard errors for the chosen models
 #look at residuals in data to see which types of robust correction are appropriate
 cat("recreate stepdata as subset of incomedata with complete cases on cf and edcat (n = 2017)\n")
